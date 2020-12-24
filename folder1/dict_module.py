@@ -1,9 +1,15 @@
 #!-*-conding:utf-8-*-
 import matplotlib.pyplot as plt
+from abc import ABCMeta, abstractmethod
 __all__ = ["lineplot", "scatter"]
 
+# Graphクラスを継承しているクラスのplotメソッドのplotという名を統一
+class Graph(metaclass = ABCMeta):
+    @abstractmethod
+    def plot(self):
+        pass
 
-class lineplot:
+class lineplot(Graph):
 
     def __init__(self, xlim, ylim, filename):
         self.xlim = xlim
@@ -16,7 +22,7 @@ class lineplot:
         plt.xlim(self.xlim), plt.ylim(self.ylim)
         plt.savefig(self.filename)
 
-class scatter:
+class scatter(Graph):
 
     def __init__(self, xlim, ylim, filename):
         self.xlim = xlim

@@ -24,8 +24,21 @@ def f(x):
 x = np.arange(-10, 10, 0.1)
 y = f(x = x)
 
+"""
 l_obj = fl.lineplot(xlim = (-10, 10), ylim = (-1, 100), filename = "graphs/lineplot.png")
 s_obj = fl.scatter(xlim = (-10, 10), ylim = (-1, 100), filename = "graphs/scatter.png")
 
 l_obj.plot(x = x, y = y)
 s_obj.plot(x = x, y = y)
+"""
+
+exec_dict = {
+"lineplot_0": {"xlim": (-10, 10), "ylim": (-1, 100), "filename": "graphs/lineplot.png" },
+"scatter_0": {"xlim": (-10, 10), "ylim": (-1, 100), "filename": "graphs/scatter.png" }
+}
+
+for method, configs in exec_dict.items():
+    print("fl.{}".format( method.split("_")[0]))
+    obj = eval("fl.{}".format( method.split("_")[0]))(xlim = configs["xlim"], \
+    ylim = configs["ylim"], filename = configs["filename"]
+    obj.plot(x = x_plot, y = y_plot)
