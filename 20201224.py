@@ -40,5 +40,5 @@ exec_dict = {
 for method, configs in exec_dict.items():
     print("fl.{}".format( method.split("_")[0]))
     obj = eval("fl.{}".format( method.split("_")[0]))(xlim = configs["xlim"], \
-    ylim = configs["ylim"], filename = configs["filename"]
-    obj.plot(x = x_plot, y = y_plot)
+    ylim = configs["ylim"], filename = configs["filename"] )
+    obj.plot(x = x, y = y)
