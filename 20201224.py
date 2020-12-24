@@ -4,7 +4,7 @@ import folder1 as fl
 """
 for文
 """
-
+dkdkdkdkkdkd
 ### 3の倍数だけ表示する
 def nabeatsu(value):
     if value % 3 == 0 and value != 0:
